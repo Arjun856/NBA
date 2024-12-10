@@ -1,0 +1,6 @@
+12/10/24
+- pip install nba_api
+- pip install requests
+- pip install numpy
+- pip install pandas
+- pip install SQLAlchemy
