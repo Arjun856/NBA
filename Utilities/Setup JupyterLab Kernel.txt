@@ -1,0 +1,9 @@
+https://chatgpt.com/c/6753d424-1160-8006-817a-403754e9ba73
+
+conda create --name your_environment_name
+
+conda install -c conda-forge notebook
+
+conda install -c anaconda ipykernel
+
+python -m ipykernel install --user --name your_environment_name --display-name "Custom Environment"
