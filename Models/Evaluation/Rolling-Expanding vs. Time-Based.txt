@@ -1,0 +1,42 @@
+When to Use Each Approach
+
+Time-Based Split
+
+Best for Simplicity:
+Provides a quick way to test if the model can generalize to future data.
+Suitable when you’re mainly interested in evaluating performance for one future year.
+
+Limitations:
+It gives a single snapshot of model performance, which may not reveal its robustness over time.
+A single test year might not fully capture the dynamics of changing player stats, game trends, or external factors.
+
+Rolling/Expanding Window Validation
+
+Best for Robustness:
+Provides a more comprehensive evaluation by validating the model across multiple years.
+Helps understand whether the model performs consistently over time or if its accuracy degrades as data evolves.
+
+Limitations:
+Requires more computation since it trains and evaluates the model multiple times.
+
+Example Comparison
+Let’s assume your dataset covers the years 2000–2022, and you want to evaluate the model on its ability to predict 2020 performance.
+
+Time-Based Split
+Train: 2000–2019
+Test: 2020
+Result: You get MAE, RMSE, etc., for predictions on 2020. If performance is good, you assume the model generalizes well.
+Rolling/Expanding Window Validation
+Rolling Window:
+Train: 2000–2009, Test: 2010
+Train: 2001–2010, Test: 2011
+Train: 2002–2011, Test: 2012
+...
+Train: 2010–2019, Test: 2020
+Expanding Window:
+Train: 2000–2009, Test: 2010
+Train: 2000–2010, Test: 2011
+Train: 2000–2011, Test: 2012
+...
+Train: 2000–2019, Test: 2020
+Result: You get metrics (MAE, RMSE, etc.) for each test year (2010, 2011, ..., 2020). This provides a clearer picture of the model's stability and robustness over time.
